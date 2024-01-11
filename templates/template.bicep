@@ -1,4 +1,5 @@
 // Parameters
+param location string = resourceGroup().location
 @description('Please specify a login name for the Azure SQL Server administrator. Default value: sqladmin.')
 param sqlServerAdminLogin string = 'sqladmin'
 @secure()
@@ -7,7 +8,6 @@ param sqlServerAdminPassword string = newGuid()
 
 // Variables
 var tenantId = subscription().tenantId
-var location = resourceGroup().location
 var subscriptionId = subscription().subscriptionId
 var resourceGroupName = resourceGroup().name
 var rdPrefix = '/subscriptions/${subscriptionId}/providers/Microsoft.Authorization/roleDefinitions'
